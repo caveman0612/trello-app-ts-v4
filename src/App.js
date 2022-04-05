@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+// import AddTodoForm from "./components/AddToDoForm";
+// import TodoList from "./components/ToDoList";
+// import TotalCompleteItems from "./components/TotalCompleteItems";
+import Body from "./routes/body/Body";
+// import Footer from "./routes/Footer";
+import Header from "./routes/Header";
 
 function App() {
   return (
+    // <div className="container bg-white p-4 mt-5">
+    //   <h1>My Todo List</h1>
+    //   <AddTodoForm />
+    //   <TodoList />
+    //   <TotalCompleteItems />
+    // </div>
     <div className="App">
-      <header className="App-header">
-        <h1>Hello world</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Body />
+      {/* <Footer /> */}
     </div>
   );
 }
