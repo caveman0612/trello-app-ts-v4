@@ -1,9 +1,5 @@
 import "./App.css";
-// import AddTodoForm from "./components/AddToDoForm";
-// import TodoList from "./components/ToDoList";
-// import TotalCompleteItems from "./components/TotalCompleteItems";
 import Body from "./routes/body/Body";
-// import Footer from "./routes/Footer";
 import Header from "./routes/Header";
 
 function App() {
@@ -17,7 +13,6 @@ function App() {
     <div className="App">
       <Header />
       <Body />
-      {/* <Footer /> */}
     </div>
   );
 }
