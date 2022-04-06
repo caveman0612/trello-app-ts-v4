@@ -22,7 +22,7 @@ const Body = () => {
   return (
     <div className="container d-flex align-items-start">
       {todos.map((todo) => {
-        return <Folder todo={todo} />;
+        return <Folder todo={todo} key={todo.id} />;
       })}
       <form onSubmit={handleSubmit}>
         <input

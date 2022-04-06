@@ -22,17 +22,29 @@ const todoSlice = createSlice({
       };
       state.push(newTodo);
     },
-    // toggleComplete: (state, action) => {
-    //   const index = state.findIndex((todo) => todo.id === action.payload.id);
-    //   state[index].completed = action.payload.completed;
-    // },
+    addCard: (state, action) => {
+      const newCard = {
+        id: Date.now(),
+        title: action.payload.title,
+      };
+      const index = state.findIndex((todo) => todo.id === action.payload.id);
+      state[index].cards.push(newCard);
+    },
     deleteTodo: (state, action) => {
       const index = state.findIndex((todo) => todo.id === action.payload.id);
       state.splice(index, 1);
     },
+    deleteCard: (state, action) => {
+      const { folderId, cardId } = action.payload;
+      const folderIndex = state.findIndex((todo) => todo.id === folderId);
+      const cardIndex = state[folderIndex].cards.findIndex(
+        (card) => card.id === cardId
+      );
+      state[folderIndex].cards.splice(cardIndex, 1);
+    },
   },
 });
 
-export const { addTodo, toggleComplete, deleteTodo } = todoSlice.actions;
+export const { addTodo, addCard, deleteTodo, deleteCard } = todoSlice.actions;
 
 export default todoSlice.reducer;
