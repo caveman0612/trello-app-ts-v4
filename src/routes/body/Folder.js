@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addCard, deleteTodo, deleteCard } from "../../redux/todoSlice";
 
-const Folder = ({ todo }) => {
+const Folder = ({ folder }) => {
   const dispatch = useDispatch();
   const [newCard, setNewCard] = useState("");
 
@@ -12,23 +12,23 @@ const Folder = ({ todo }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(addCard({ id: todo.id, title: newCard }));
+    dispatch(addCard({ id: folder.id, title: newCard }));
     setNewCard("");
   }
 
   function handleDeleteFolder(event) {
     const confirm = window.confirm("This will delete the whole folder!");
-    confirm && dispatch(deleteTodo({ id: todo.id }));
+    confirm && dispatch(deleteTodo({ id: folder.id }));
   }
 
   function handleDeleteCard(cardId) {
-    dispatch(deleteCard({ folderId: todo.id, cardId }));
+    dispatch(deleteCard({ folderId: folder.id, cardId }));
   }
   return (
     <div>
       <div className="card d-flex flex-column px-3 me-5">
         <div className="d-flex justify-content-between align-items-center">
-          <h2 className="">{todo.title}</h2>
+          <h2 className="">{folder.title}</h2>
           <button
             style={{ height: "30px" }}
             className="btn-danger"
@@ -39,7 +39,7 @@ const Folder = ({ todo }) => {
         </div>
 
         <ul className="list-unstyled">
-          {todo.cards.map((item) => {
+          {folder.cards.map((item) => {
             return (
               <li
                 className=" border mb-2 p-1 ps-2 d-flex justify-content-between"

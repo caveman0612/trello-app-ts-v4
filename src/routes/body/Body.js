@@ -21,8 +21,11 @@ const Body = () => {
 
   return (
     <div className="container d-flex align-items-start">
-      {todos.map((todo) => {
-        return <Folder todo={todo} key={todo.id} />;
+      {todos.folderOrder.map((id) => {
+        const folder = todos.folders[id];
+        const cardsInFolder = folder.cardIds.map((id) => todos.cards[id]);
+        const completeFolder = { ...folder, cards: cardsInFolder };
+        return <Folder folder={completeFolder} key={folder.id} />;
       })}
       <form onSubmit={handleSubmit}>
         <input
