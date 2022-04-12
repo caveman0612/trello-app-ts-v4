@@ -1,5 +1,11 @@
 # Trello Clone
 
+This project is my attempt to build a advanced note taking application like trello
+
+This project allows people to create lists and cards on those list. I am implementing drag and drop
+
+functionalitiy so the cards and folders can move around like in trello.
+
 Context on the problem or project (what it is and why you're doing it)
 
 Information on your research or user case
