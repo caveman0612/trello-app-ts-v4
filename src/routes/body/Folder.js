@@ -18,11 +18,16 @@ const Folder = ({ folder }) => {
 
   function handleDeleteFolder(event) {
     const confirm = window.confirm("This will delete the whole folder!");
-    confirm && dispatch(deleteTodo({ id: folder.id }));
+    if (confirm) {
+      folder.cardIds.map(id => {
+        dispatch(deleteCard({folderId: folder.id, cardId: id}))
+      })
+      dispatch(deleteTodo({ id: folder.id }))};
   }
 
   function handleDeleteCard(cardId) {
-    dispatch(deleteCard({ folderId: folder.id, cardId }));
+    const confirm = window.confirm("This will the card permentally");
+    confirm && dispatch(deleteCard({ folderId: folder.id, cardId }));
   }
   return (
     <div>

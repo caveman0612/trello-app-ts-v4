@@ -9,7 +9,7 @@ const todoSlice = createSlice({
         title: "todo1",
         cardIds: [3, 4],
       },
-      2: { id: 2, title: "todo2", cardIds: [] },
+      2: { id: 2, title: "todo2", cardIds: [5] },
     },
     cards: {
       3: { id: 3, title: "go running" },
@@ -28,27 +28,28 @@ const todoSlice = createSlice({
       state.folders[newTodo.id] = newTodo;
       state.folderOrder.push(newTodo.id);
     },
+    
     deleteTodo: (state, action) => {
-      const index = state.findIndex((todo) => todo.id === action.payload.id);
-      state.splice(index, 1);
+      const index = state.folderOrder.findIndex((id) => id === action.payload.id);
+      state.folderOrder.splice(index, 1);
+      delete state.folders[action.payload.id]
     },
-    // addCard: (state, action) => {
-    //   const newCard = {
-    //     id: Date.now(),
-    //     title: action.payload.title,
-    //   };
-    //   const index = state.findIndex((todo) => todo.id === action.payload.id);
-    //   state[index].cards.push(newCard);
-    // },
 
-    // deleteCard: (state, action) => {
-    //   const { folderId, cardId } = action.payload;
-    //   const folderIndex = state.findIndex((todo) => todo.id === folderId);
-    //   const cardIndex = state[folderIndex].cards.findIndex(
-    //     (card) => card.id === cardId
-    //   );
-    //   state[folderIndex].cards.splice(cardIndex, 1);
-    // },
+    addCard: (state, action) => {
+      const newCard = {
+        id: Date.now(),
+        title: action.payload.title,
+      };
+      state.folders[action.payload.id].cardIds.push(newCard.id)
+      state.cards[newCard.id] = newCard
+    },
+
+    deleteCard: (state, action) => {
+      const folder = state.folders[action.payload.folderId]
+      const index = folder.cardIds.findIndex((id) => id === action.payload.cardId)
+      folder.cardIds.splice(index, 1);
+      delete state.cards[action.payload.cardId]
+    },
   },
 });
 
