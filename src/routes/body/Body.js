@@ -20,7 +20,7 @@ const Body = () => {
   };
 
   return (
-    <div className="container d-flex align-items-start">
+    <div className="container-fluid d-flex align-items-start">
       {todos.folderOrder.map((id) => {
         const folder = todos.folders[id];
         const cardsInFolder = folder.cardIds.map((id) => todos.cards[id]);

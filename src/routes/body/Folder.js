@@ -35,8 +35,8 @@ const Folder = ({ folder }) => {
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="">{folder.title}</h2>
           <button
-            style={{ height: "30px" }}
-            className="btn-danger"
+            style={{ height: "30px", width: "30px" }}
+            className="btn border d-flex justify-content-center align-items-center"
             onClick={handleDeleteFolder}
           >
             X
@@ -53,7 +53,7 @@ const Folder = ({ folder }) => {
                 {item.title}
                 <button
                   style={{ height: "20px", width: "20px" }}
-                  className="btn-danger d-flex justify-content-center align-items-center"
+                  className="btn border d-flex justify-content-center align-items-center text-danger"
                   onClick={() => handleDeleteCard(item.id)}
                 >
                   x
