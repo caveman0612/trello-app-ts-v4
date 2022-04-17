@@ -10,7 +10,7 @@ const todoSlice = createSlice({
         cardIds: [3, 4],
       },
       2: { id: 2, title: "In progress", cardIds: [5] },
-      3: { id: 6, title: "Testing", cardIds: [] },
+      3: { id: 3, title: "Testing", cardIds: [] },
       4: { id: 4, title: "Complete", cardIds: [] },
     },
     cards: {
