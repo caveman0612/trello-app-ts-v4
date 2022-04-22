@@ -73,7 +73,7 @@ const Folder = ({ folder, cards, index }) => {
                               {card.title}
                               <button
                                 style={{ height: "20px", width: "20px" }}
-                                className="btn border d-flex justify-content-center align-items-center text-danger"
+                                className="btn border d-flex justify-content-center align-items-center "
                                 onClick={() => handleDeleteCard(card.id)}
                               >
                                 x

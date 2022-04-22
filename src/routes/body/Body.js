@@ -44,7 +44,7 @@ const Body = () => {
         {(provided) => {
           return (
             <div
-              className="container-fluid d-flex align-items-start"
+              className="container-fluid d-flex align-items-start ms-4 mt-4"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
