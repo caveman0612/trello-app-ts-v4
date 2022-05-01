@@ -1,4 +1,5 @@
 import Body from "./routes/body/Body";
+import Footer from "./routes/Footer";
 import Header from "./routes/Header";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <Header />
       <Body />
+      <Footer />
     </div>
   );
 }

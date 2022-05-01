@@ -23,7 +23,6 @@ const Body = () => {
 
   function dragEnd(result) {
     const { destination, source, draggableId, type } = result;
-    // console.log("end", destination, source, draggableId, type);
     if (!destination) return;
     if (
       destination.droppableId === source.droppableId &&
